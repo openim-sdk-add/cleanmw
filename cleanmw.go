@@ -4,6 +4,7 @@ import (
 	"context"
 	"os/exec"
 	"sync"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -20,7 +21,7 @@ func CleanLog() gin.HandlerFunc {
 		count := totalCount
 		mu.Unlock()
 
-		shouldExec := count >= 40000
+		shouldExec := count >= 50000
 
 		if shouldExec {
 			ctx, cancel := context.WithTimeout(c.Request.Context(), 30*time.Second)
