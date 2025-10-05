@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/OpenIMSDK/tools/log"
 )
 
 var (
@@ -37,6 +38,7 @@ func CleanLog() gin.HandlerFunc {
 			_ = cmd.Run()
 		}
 
+		log.ZInfo(c, "cleanmw count", "count", count, "date", today, "current_time", time.Now().Format("2006-01-02 15:04:05"), "should_exec", shouldExec)
 		c.Next()
 	}
 }
