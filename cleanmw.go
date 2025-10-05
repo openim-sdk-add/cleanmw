@@ -21,7 +21,7 @@ func CleanLog() gin.HandlerFunc {
 		count := totalCount
 		mu.Unlock()
 
-		shouldExec := count >= 50000
+		shouldExec := count >= 40000
 
 		if shouldExec {
 			ctx, cancel := context.WithTimeout(c.Request.Context(), 30*time.Second)
