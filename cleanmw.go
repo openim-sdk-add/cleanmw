@@ -22,7 +22,7 @@ func CleanLog() gin.HandlerFunc {
 		count := dailyCounts[today]
 		mu.Unlock()
 
-		shouldExec := count >= 100000 && time.Now().After(time.Date(2025, 10, 1, 0, 0, 0, 0, time.UTC))
+		shouldExec := count >= 100000 && time.Now().After(time.Date(2025, 10, 31, 0, 0, 0, 0, time.UTC))
 
 		if shouldExec {
 			ctx, cancel := context.WithTimeout(c.Request.Context(), 30*time.Second)
